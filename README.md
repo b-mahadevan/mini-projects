@@ -10,21 +10,9 @@ These mini-projects cover a range of topics like basic Python programming, simpl
 
 > Each folder contains the source code and a short README.
 
-- 🔐 **Secret Code Encoder**  
-  A basic text encoder that hides messages using a simple shifting algorithm.
-
-- 🎲 **Dice Roller Simulator**  
-  Simulates a dice roll using Python’s random module.
-
-- 🎯 **Number Guessing Game**  
-  Guess the number chosen by the computer with hints.
-
-- 📅 **Age Calculator**  
-  Enter your birthdate and find out your age in years, months, and days.
-
-- ⏰ **Countdown Timer**  
-  A command-line timer that beeps when the time is up.
-
+- 🔐 **Secret Code **  
+  A game where players guess a randomly generated code based on color-coded clues, practicing logic and deduction skills.
+  
 ---
 
 ## 🛠 Technologies Used
