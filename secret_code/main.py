@@ -109,7 +109,7 @@ while True:
     if guess != secret_code:
         print(Style.BRIGHT + f"\nSorry, try next game. The secret code is {secret_code}.")
 
-    play_again = input("Do you want to play again? 'yes/no'")
+    play_again = input("Do you want to play again? 'yes/no'\n")
     
     if play_again.strip().lower() in ['yes', 'y']:
         print("Thanks for your interest. Let we start.")
