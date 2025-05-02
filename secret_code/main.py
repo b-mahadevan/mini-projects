@@ -54,20 +54,17 @@ print("Hi, welcome to the Secret Code game.\n"
 )
 print(Style.BRIGHT + Fore.BLUE + "Are you ready? Let's get started!\n")
 while True:
-    digits = int(input("How many digits do you want to decode?\n"))
-   
-
     while True:
-        if digits<3:
-            print("Please, enter the digits greater than 2.")
-            digits = int(input("How many digits do you want to decode?\n"))
-
-        elif digits>7:
-            print("Please, enter the digits less than 8.")
-            digits = int(input("How many digits do you want to decode?\n"))
-    
-        else:
-            break
+        try:
+            digits = int(input("How many digits do you want to decode? "))
+            if digits < 3:
+                print("Please enter a number greater than 2.")
+            elif digits > 6:
+                print("Please enter a number less than 7.")
+            else:
+                break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
 
     if digits == 3:
         max_attempts = 8
@@ -110,11 +107,11 @@ while True:
 
     play_again = input("Do you want to play again? 'yes/no'")
     
-    if play_again.lower() == 'yes':
+    if play_again.strip().lower() in ['yes', 'y']:
         print("Thanks for your interest. Let we start.")
         continue
 
-    elif play_again.lower() == 'no':
+    elif play_again.strip().lower() in ['no', 'n']:
         print("Thanks, for playing.")
         break
 
