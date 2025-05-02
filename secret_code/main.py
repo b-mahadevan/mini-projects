@@ -2,6 +2,10 @@
 
 import random
 
+from colorama import Fore, Style, init
+
+init(autoreset=True)
+
 def secret_number (digits):
     '''generate a random number with the given input digits'''
 
@@ -42,24 +46,25 @@ print("Hi, welcome to the Secret Code game.\n"
       "Once you enter, the secret code will be generated and the game begins.\n"
       "Just enter the number you have in mind.\n"
       "The clues are as follows:\n"
-      "None of the number is repetative and number never start from zero"
+      "None of the number is repetative and number never start from zero\n"
       "\t'\033[32mGreen\033[0m' - The number is in the secret code and in the correct position\n"
       "\t'\033[33mYellow\033[0m' - The number is in the secret code but in the wrong position\n"
       "\t'\033[31mRed\033[0m' - The number is not in the secret code\n"
-      "Example: If the code is '452' and the guess is '512', the clue will be 'Yellow Red Green'\n"
-      "Are you ready? Let's get started!"
+      "\nExample: If the code is '452' and the guess is '512', the clue will be 'Yellow Red Green'\n"
 )
+print(Style.BRIGHT + Fore.BLUE + "Are you ready? Let's get started!\n")
 while True:
-    digits = int(input("How many digits do you want to decode?"))
+    digits = int(input("How many digits do you want to decode?\n"))
+   
 
     while True:
         if digits<3:
             print("Please, enter the digits greater than 2.")
-            digits = int(input("How many digits do you want to decode?"))
+            digits = int(input("How many digits do you want to decode?\n"))
 
         elif digits>7:
             print("Please, enter the digits less than 8.")
-            digits = int(input("How many digits do you want to decode?"))
+            digits = int(input("How many digits do you want to decode?\n"))
     
         else:
             break
@@ -80,29 +85,28 @@ while True:
 
     secret_code = secret_number(digits)
 
-    print("\nSuccesfully generated the secret code. Let's start.")
-
+    print(Style.BRIGHT + Fore.BLUE + "\nSuccesfully generated the secret code. Let's start.")
 
     while max_attempts:
-        guess = input(f"Enter the {digits} digits number that is in your mind.")
+        guess = input(f"\nEnter the {digits} digits number that is in your mind.\n")
 
         if len(guess) != digits or not guess.isdigit():
             print(f"Please, enter the {digits} digits number exactly.")
-            print(f"You have {max_attempts} attempts remaining.")
+            print(Style.BRIGHT + Fore.BLUE + f"\nYou have {max_attempts} attempts remaining.")
             continue
         
         clues = clue(guess, secret_code, digits)
         print(f"{guess}: {clues}")
 
         if guess == secret_code:
-            print(f"\nCongrats you find the secret code. The secret code is {secret_code}.")
+            print(Style.BRIGHT + Fore.GREEN +f"\nCongrats you find the secret code. The secret code is {secret_code}.")
             break
 
         max_attempts -= 1
-        print(f"{max_attempts} attempts remaining")
+        print(Style.BRIGHT + Fore.RED + f"\n{max_attempts} attempts remaining")
 
     if guess != secret_code:
-        print(f"\nSorry, try next game. The secret code is {secret_code}.")
+        print(Style.BRIGHT + f"\nSorry, try next game. The secret code is {secret_code}.")
 
     play_again = input("Do you want to play again? 'yes/no'")
     
