@@ -13,12 +13,16 @@ def secret_number (digits):
 
     number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     random.shuffle(number)
+
+    if number[9] == 0:
+        number[9], number[8] = number[8], number[9]
+
     while digits:
 
             i = str(number.pop())
             code += i
             digits -= 1
-    
+
     return code
 
 
